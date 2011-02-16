@@ -1,0 +1,16 @@
+<project name="Bukkit Flow Control" default="jar" basedir=".">
+	<property name="bin" location="bin"/>
+	<property name="dist"  location="dist"/>
+	<property name="version"  value="0.0.1"/>
+	<property name="jarfile" value="${dist}/bukkit-flow-control-${version}.jar"/>
+	<property name="test-server"  location="/Users/jauneau/tmp/bukkit/plugins/"/>
+
+	<target name="jar">
+		<mkdir dir="${dist}"/>
+		<jar jarfile="${jarfile}" basedir="${bin}"/>
+	</target>
+
+	<target name="test" depends="jar">
+		<copy file="${jarfile}" todir="${test-server}"></copy>
+	</target>
+</project>

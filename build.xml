@@ -1,16 +1,33 @@
-<project name="Bukkit Flow Control" default="jar" basedir=".">
+<project name="Bukkit Flow Control" default="dist" basedir=".">
+	<property name="src" location="src"/>
 	<property name="bin" location="bin"/>
 	<property name="dist"  location="dist"/>
 	<property name="version"  value="0.0.1"/>
 	<property name="jarfile" value="${dist}/bukkit-flow-control-${version}.jar"/>
-	<property name="test-server"  location="/Users/jauneau/tmp/bukkit/plugins/"/>
+	<property name="dropbox"  location="/Users/jauneau/Dropbox/Public/"/>
+	<property name="bukkit.jar" location="../lib/bukkit-0.0.1-SNAPSHOT.jar"/>
 
-	<target name="jar">
-		<mkdir dir="${dist}"/>
-		<jar jarfile="${jarfile}" basedir="${bin}"/>
+	<target name="init">
+		<mkdir dir="${bin}"/>
 	</target>
 
-	<target name="test" depends="jar">
-		<copy file="${jarfile}" todir="${test-server}"></copy>
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" includeantruntime="false">
+			<classpath>
+				<pathelement location="${bukkit.jar}"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile">
+		<mkdir dir="${dist}"/>
+		<jar jarfile="${jarfile}">
+			<fileset dir="${bin}"/>
+			<fileset file="${src}/plugin.yml"/>
+		</jar>
+	</target>
+	
+	<target name="dropbox">
+		<copy file="${jarfile}" todir="${dropbox}"/>
 	</target>
 </project>

@@ -2,7 +2,7 @@
 	<property name="src" location="src"/>
 	<property name="bin" location="bin"/>
 	<property name="dist"  location="dist"/>
-	<property name="version"  value="0.0.1"/>
+	<property name="version"  value="0.0.2"/>
 	<property name="jarfile" value="${dist}/bukkit-flow-control-${version}.jar"/>
 	<property name="dropbox"  location="/Users/jauneau/Dropbox/Public/"/>
 	<property name="bukkit.jar" location="../lib/bukkit-0.0.1-SNAPSHOT.jar"/>

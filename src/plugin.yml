@@ -1,5 +1,5 @@
 name: Bukkit Flow Control
 description: Minecraft Bukkit plugin for flow control (Lava and water).
-version: 0.0.2
+version: 0.0.3
 author: Jauneau Vincent
 main: com.evilplatypus.bukkit.flow.FlowControl

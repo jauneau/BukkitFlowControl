@@ -32,31 +32,18 @@ public abstract class FlowListener extends BlockListener {
     	
     	for (int i = 0; i < faces.length; i++) {
     		Block b = block.getFace(faces[i]);
-    		if (b.isBlockPowered() || b.isBlockIndirectlyPowered()) {
+    		if (b.isBlockPowered()) {
     			return true;
     		}
     	}
     	return false;
     }
-    
-    private boolean isSpread(Block from, Block to) {
-    	BlockFace[] faces = {BlockFace.UP, BlockFace.NORTH, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH};
-    	for (int i = 0; i < faces.length; i++) {
-			Block block = to.getFace(faces[i]);
-			if (isLiquid(block) && block != from) {
-				if (to.getData() > block.getData()) {
-					return false;
-				}
-			}
-    	}
-    	return from.getData() < to.getData();
-    }
-    
+        
     private void stopFlow(Block block) {
     	BlockFace[] faces = {BlockFace.DOWN, BlockFace.NORTH, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH};
     	for (int i = 0; i < faces.length; i++) {
     		Block b = block.getFace(faces[i]);
-    		if (isLiquid(b) && isSpread(block, b)) {
+        	if (isLiquid(b) && b.getData() > 0) {
     			b.setType(Material.AIR);
     		}
     	}

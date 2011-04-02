@@ -24,8 +24,8 @@ public class FlowControl extends JavaPlugin {
 		
         // Register our events
         PluginManager pm = getServer().getPluginManager();
-        pm.registerEvent(Event.Type.BLOCK_FLOW, waterListener, Priority.Normal, this);
-        pm.registerEvent(Event.Type.BLOCK_FLOW, lavaListener, Priority.Normal, this);
+        pm.registerEvent(Event.Type.BLOCK_FROMTO, waterListener, Priority.Normal, this);
+        pm.registerEvent(Event.Type.BLOCK_FROMTO, lavaListener, Priority.Normal, this);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import org.bukkit.event.block.BlockListener;
 public abstract class FlowListener extends BlockListener {
     
     @Override
-    public void onBlockFlow(BlockFromToEvent event) {
+    public void onBlockFromTo(BlockFromToEvent event) {
     	if (event.isCancelled()) return;
 
     	Block block = event.getBlock();
